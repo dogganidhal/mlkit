@@ -6,8 +6,8 @@
 
 void mlkit::data::data_set::set(const mlkit::data::cell &cell, size_t row, size_t col)
 {
-  size_t nrows = __vectors.at(col).cells().size();
   assert(col < __vectors.size());
+  size_t nrows = __vectors.at(col).cells().size();
   assert(row <= nrows);
   if (row == __vectors.at(col).cells().size()) // Must resize
     __vectors[col].cells().resize(nrows + 1, cell);

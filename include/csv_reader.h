@@ -15,11 +15,12 @@ MLKIT_IO_NAMESPACE_DEFINE
 
 class csv_reader
 {
+  
+private:
 
 public:
 
-  static mlkit::data::data_set read(const std::string &path);
-  static mlkit::data::data_set read(const char *path);
+  static mlkit::data::data_set read(const std::string &path, char delimiter = ',');
 
 };
 
