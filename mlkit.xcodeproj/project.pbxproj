@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		E3B3895C211628FF0066BE3A /* cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B38957211628FF0066BE3A /* cell.cpp */; };
-		E3B3895D211628FF0066BE3A /* label_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B38958211628FF0066BE3A /* label_vector.cpp */; };
 		E3B3895E211628FF0066BE3A /* csv_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B38959211628FF0066BE3A /* csv_reader.cpp */; };
 		E3B3895F211628FF0066BE3A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B3895A211628FF0066BE3A /* main.cpp */; };
 		E3B38960211628FF0066BE3A /* data_set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B3895B211628FF0066BE3A /* data_set.cpp */; };
 		E3B3897421164D0C0066BE3A /* cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B38957211628FF0066BE3A /* cell.cpp */; };
 		E3B3897521164D0C0066BE3A /* csv_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B38959211628FF0066BE3A /* csv_reader.cpp */; };
 		E3B3897621164D0C0066BE3A /* data_set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B3895B211628FF0066BE3A /* data_set.cpp */; };
-		E3B3897721164D0C0066BE3A /* label_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B38958211628FF0066BE3A /* label_vector.cpp */; };
+		E3B3897F2116F51A0066BE3A /* simple_linear_regressor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B3897D2116F51A0066BE3A /* simple_linear_regressor.cpp */; };
+		E3B389802116F51A0066BE3A /* simple_linear_regressor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B3897D2116F51A0066BE3A /* simple_linear_regressor.cpp */; };
+		E3B389812116F51A0066BE3A /* simple_linear_regressor.h in Headers */ = {isa = PBXBuildFile; fileRef = E3B3897E2116F51A0066BE3A /* simple_linear_regressor.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,7 +34,6 @@
 /* Begin PBXFileReference section */
 		E3B38933211627BF0066BE3A /* mlkit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mlkit; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3B38957211628FF0066BE3A /* cell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cell.cpp; sourceTree = "<group>"; };
-		E3B38958211628FF0066BE3A /* label_vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = label_vector.cpp; sourceTree = "<group>"; };
 		E3B38959211628FF0066BE3A /* csv_reader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = csv_reader.cpp; sourceTree = "<group>"; };
 		E3B3895A211628FF0066BE3A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E3B3895B211628FF0066BE3A /* data_set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = data_set.cpp; sourceTree = "<group>"; };
@@ -46,6 +46,8 @@
 		E3B389682116290C0066BE3A /* label_vector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = label_vector.h; sourceTree = "<group>"; };
 		E3B389692116290C0066BE3A /* io.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = io.h; sourceTree = "<group>"; };
 		E3B3897021164CAF0066BE3A /* libml.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libml.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3B3897D2116F51A0066BE3A /* simple_linear_regressor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = simple_linear_regressor.cpp; sourceTree = "<group>"; };
+		E3B3897E2116F51A0066BE3A /* simple_linear_regressor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = simple_linear_regressor.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		E3B3896A211647AF0066BE3A /* include */ = {
 			isa = PBXGroup;
 			children = (
+				E3B3897E2116F51A0066BE3A /* simple_linear_regressor.h */,
 				E3B389662116290C0066BE3A /* cell.h */,
 				E3B389632116290C0066BE3A /* csv_reader.h */,
 				E3B389652116290C0066BE3A /* data_set.h */,
@@ -105,8 +108,8 @@
 				E3B38957211628FF0066BE3A /* cell.cpp */,
 				E3B38959211628FF0066BE3A /* csv_reader.cpp */,
 				E3B3895B211628FF0066BE3A /* data_set.cpp */,
-				E3B38958211628FF0066BE3A /* label_vector.cpp */,
 				E3B3895A211628FF0066BE3A /* main.cpp */,
+				E3B3897D2116F51A0066BE3A /* simple_linear_regressor.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -118,6 +121,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B389812116F51A0066BE3A /* simple_linear_regressor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +204,7 @@
 			files = (
 				E3B38960211628FF0066BE3A /* data_set.cpp in Sources */,
 				E3B3895C211628FF0066BE3A /* cell.cpp in Sources */,
-				E3B3895D211628FF0066BE3A /* label_vector.cpp in Sources */,
+				E3B3897F2116F51A0066BE3A /* simple_linear_regressor.cpp in Sources */,
 				E3B3895F211628FF0066BE3A /* main.cpp in Sources */,
 				E3B3895E211628FF0066BE3A /* csv_reader.cpp in Sources */,
 			);
@@ -213,7 +217,7 @@
 				E3B3897621164D0C0066BE3A /* data_set.cpp in Sources */,
 				E3B3897421164D0C0066BE3A /* cell.cpp in Sources */,
 				E3B3897521164D0C0066BE3A /* csv_reader.cpp in Sources */,
-				E3B3897721164D0C0066BE3A /* label_vector.cpp in Sources */,
+				E3B389802116F51A0066BE3A /* simple_linear_regressor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,9 @@
 //
-// Created by Nidhal DOGGA on 04/08/2018.
+//  data_set.cpp
+//  mlkit
+//
+//  Created by Nidhal DOGGA on 05/08/2018.
+//  Copyright © 2018 Nidhal DOGGA. All rights reserved.
 //
 
 #include "data_set.h"
@@ -9,7 +13,7 @@ void mlkit::data::data_set::set(const mlkit::data::cell &cell, size_t row, size_
   assert(col < __vectors.size());
   size_t nrows = __vectors.at(col).cells().size();
   assert(row <= nrows);
-  if (row == __vectors.at(col).cells().size()) // Must resize
+  if (row == nrows) // Must resize
     __vectors[col].cells().resize(nrows + 1, cell);
   else
     __vectors[col].cells()[row] = cell;
@@ -98,4 +102,12 @@ std::tuple<mlkit::data::data_set, mlkit::data::data_set> mlkit::data::data_set::
   return std::tuple<mlkit::data::data_set, mlkit::data::data_set>(train_set, test_set);
 }
 
+std::vector<mlkit::data::cell> mlkit::data::data_set::drop_column(size_t index)
+{
+  std::vector<mlkit::data::cell> col;
+  for (size_t row = 0; row < __vectors[index].cells().size(); row++)
+    col.push_back(__vectors[index].cells()[row]);
+  __vectors.erase(__vectors.begin() + index);
+  return col;
+}
 

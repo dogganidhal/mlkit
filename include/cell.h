@@ -1,5 +1,9 @@
 //
-// Created by Nidhal DOGGA on 04/08/2018.
+//  cell.h
+//  mlkit
+//
+//  Created by Nidhal DOGGA on 05/08/2018.
+//  Copyright © 2018 Nidhal DOGGA. All rights reserved.
 //
 
 #ifndef MLKIT_CELL_H
@@ -37,6 +41,8 @@ public:
   operator double();
   operator std::string();
   operator const char *();
+  bool operator >(mlkit::data::cell other);
+  bool operator <(mlkit::data::cell other);
 
   friend std::ostream& operator<<(std::ostream& os, const mlkit::data::cell& cell);
 

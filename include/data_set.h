@@ -1,5 +1,9 @@
 //
-// Created by Nidhal DOGGA on 04/08/2018.
+//  data_set.h
+//  mlkit
+//
+//  Created by Nidhal DOGGA on 05/08/2018.
+//  Copyright © 2018 Nidhal DOGGA. All rights reserved.
 //
 
 #ifndef MLKIT_DATA_SE_H
@@ -37,6 +41,8 @@ public:
   void add_col(const std::string &label);
   std::vector<mlkit::data::cell>& operator[] (const std::string &label);
   std::tuple<mlkit::data::data_set, mlkit::data::data_set> train_test_split(double train_on_test_factor);
+  
+  std::vector<mlkit::data::cell> drop_column(size_t index);
 
 };
 

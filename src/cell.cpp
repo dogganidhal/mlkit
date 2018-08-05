@@ -1,5 +1,9 @@
 //
-// Created by Nidhal DOGGA on 04/08/2018.
+//  cell.cpp
+//  mlkit
+//
+//  Created by Nidhal DOGGA on 05/08/2018.
+//  Copyright © 2018 Nidhal DOGGA. All rights reserved.
 //
 
 #include "../include/cell.h"
@@ -56,4 +60,18 @@ mlkit::data::cell::cell(const char *buf)
 bool mlkit::data::cell::empty()
 {
   return __buf.npos > 0;
+}
+
+bool mlkit::data::cell::operator >(mlkit::data::cell other)
+{
+  double lhs = *this;
+  double rhs = other;
+  return lhs > rhs;
+}
+
+bool mlkit::data::cell::operator <(mlkit::data::cell other)
+{
+  double lhs = *this;
+  double rhs = other;
+  return lhs < rhs;
 }

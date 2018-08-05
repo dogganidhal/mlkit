@@ -1,3 +1,10 @@
+//
+//  main.cpp
+//  mlkit
+//
+//  Created by Nidhal DOGGA on 05/08/2018.
+//  Copyright © 2018 Nidhal DOGGA. All rights reserved.
+//
 
 #include <iostream>
 #include "mlkit.h"
@@ -5,40 +12,24 @@
 int main()
 {
 
-  mlkit::data::data_set ds = mlkit::io::csv_reader::read(("1000-rows.csv"), ',');
-  
+  mlkit::data::data_set ds = mlkit::io::csv_reader::read("simple-linear-regression-example.csv");
   auto sets = ds.train_test_split(2.0 / 3.0);
-  
   mlkit::data::data_set train_set = std::get<0>(sets), test_set = std::get<1>(sets);
+  
+  mlkit::simple_linear_regressor regressor;
+  
+  std::vector<mlkit::data::cell> train_dependent_var = train_set.drop_column(1);
+  std::vector<mlkit::data::cell> test_dependent_var = test_set.drop_column(1);
 
-  std::cout << "\nTRAIN SET --------------------------------------\n\n";
+  regressor.fit(train_set, train_dependent_var);
   
-  for (size_t row = 0; row < train_set.nrows(); row++)
-  {
-    for (size_t col = 0; col < train_set.ncols(); col++)
-    {
-      std::cout << train_set.at(row, col);
-      if (col < train_set.ncols() - 1)
-        std::cout << ",";
-    }
-    if (row < train_set.nrows() - 1)
-      std::cout << std::endl;
-  }
+  std::vector<mlkit::data::cell> predicted = regressor.predict(test_set);
   
-  std::cout << "\n\nTEST SET --------------------------------------\n\n";
+  for (size_t index = 0; index < predicted.size(); index++)
+    std::cout << "Predicted: " << predicted[index] << ", Actual: "
+    << test_dependent_var[index] << ", precision: "
+    << ((double)(min(test_dependent_var[index], predicted[index])) / (double)(max(test_dependent_var[index], predicted[index])) * 100.0)
+    << "%"
+    << std::endl;
   
-  for (size_t row = 0; row < test_set.nrows(); row++)
-  {
-    for (size_t col = 0; col < test_set.ncols(); col++)
-    {
-      std::cout << test_set.at(row, col);
-      if (col < test_set.ncols() - 1)
-        std::cout << ",";
-    }
-    if (row < test_set.nrows() - 1)
-      std::cout << std::endl;
-  }
-  
-  std::cout << std::endl;
-
 }
