@@ -28,13 +28,15 @@ public:
   
   size_t ncols();
   size_t nrows();
+  
+  std::vector<std::string> labels();
 
   mlkit::data::cell at(size_t row, size_t col);
   void set(const mlkit::data::cell &cell, size_t row, size_t col);
 
   void add_col(const std::string &label);
-  
   std::vector<mlkit::data::cell>& operator[] (const std::string &label);
+  std::tuple<mlkit::data::data_set, mlkit::data::data_set> train_test_split(double train_on_test_factor);
 
 };
 

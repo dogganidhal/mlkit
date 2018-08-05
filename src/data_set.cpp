@@ -25,6 +25,13 @@ size_t mlkit::data::data_set::nrows()
   return __vectors.size() != 0 ? __vectors[0].cells().size() : 0;
 }
 
+std::vector<std::string> mlkit::data::data_set::labels()
+{
+  std::vector<std::string> labels;
+  for (size_t col = 0; col < __vectors.size(); col++)
+    labels.push_back(__vectors[col].label());
+  return labels;
+}
 
 mlkit::data::cell mlkit::data::data_set::at(size_t row, size_t col)
 {
@@ -57,6 +64,38 @@ std::vector<mlkit::data::cell>& mlkit::data::data_set::operator[] (const std::st
   
 }
 
-
+std::tuple<mlkit::data::data_set, mlkit::data::data_set> mlkit::data::data_set::train_test_split(double train_on_test_factor)
+{
+  
+  assert(train_on_test_factor > 0 && train_on_test_factor < 1);
+  
+  mlkit::data::data_set train_set;
+  mlkit::data::data_set test_set;
+  std::vector<size_t> indexes;
+  size_t train_count = (size_t)((double)nrows() * train_on_test_factor), index = 0;
+  
+  for (index = 0; index < nrows(); index++)
+    indexes.push_back(index);
+  
+  std::random_shuffle(indexes.begin(), indexes.end());
+  
+  for (size_t col = 0; col < ncols(); col++)
+  {
+    index = 0;
+    train_set.add_col(__vectors.at(col).label());
+    test_set.add_col(__vectors.at(col).label());
+    
+    for (std::vector<size_t>::iterator iterator = indexes.begin(); iterator != indexes.end(); iterator++)
+    {
+      if (index < train_count)
+        train_set.set(at(*iterator, col), index, col);
+      else
+        test_set.set(at(*iterator, col), index - train_count, col);
+      index++;
+    }
+  }
+  
+  return std::tuple<mlkit::data::data_set, mlkit::data::data_set>(train_set, test_set);
+}
 
 
