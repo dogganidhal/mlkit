@@ -75,3 +75,43 @@ bool mlkit::data::cell::operator <(mlkit::data::cell other)
   double rhs = other;
   return lhs < rhs;
 }
+
+bool mlkit::data::cell::operator ==(mlkit::data::cell other)
+{
+  return this->__buf == other.__buf;
+}
+
+bool mlkit::data::cell::operator !=(mlkit::data::cell other)
+{
+  return this->__buf != other.__buf;
+}
+
+bool mlkit::data::cell::operator ==(int other)
+{
+  return ((int)(*this)) == other;
+}
+
+bool mlkit::data::cell::operator !=(int other)
+{
+  return ((int)(*this)) != other;
+}
+
+bool mlkit::data::cell::operator ==(std::string other)
+{
+  return this->__buf == other;
+}
+
+bool mlkit::data::cell::operator !=(std::string other)
+{
+  return this->__buf != other;
+}
+
+bool mlkit::data::cell::operator ==(const char *other)
+{
+  return this->__buf == std::string(other);
+}
+
+bool mlkit::data::cell::operator !=(const char *other)
+{
+  return this->__buf != std::string(other);
+}

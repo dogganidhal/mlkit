@@ -43,6 +43,18 @@ public:
   operator const char *();
   bool operator >(mlkit::data::cell other);
   bool operator <(mlkit::data::cell other);
+  
+  bool operator ==(mlkit::data::cell other);
+  bool operator !=(mlkit::data::cell other);
+  
+  bool operator ==(int other);
+  bool operator !=(int other);
+  
+  bool operator ==(std::string other);
+  bool operator !=(std::string other);
+  
+  bool operator ==(const char *other);
+  bool operator !=(const char *other);
 
   friend std::ostream& operator<<(std::ostream& os, const mlkit::data::cell& cell);
 
