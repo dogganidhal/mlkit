@@ -15,6 +15,7 @@
 #include "macros.h"
 #include "cell.h"
 #include "label_vector.h"
+#include "vect.h"
 
 MLKIT_NAMESPACE_DEFINE
 MLKIT_DATA_NAMESPACE_DEFINE
@@ -39,10 +40,10 @@ public:
   void set(const mlkit::data::cell &cell, size_t row, size_t col);
 
   void add_col(const std::string &label);
-  std::vector<mlkit::data::cell>& operator[] (const std::string &label);
+  mlkit::data::vect& operator[] (const std::string &label);
   std::tuple<mlkit::data::data_set, mlkit::data::data_set> train_test_split(double train_on_test_factor);
   
-  std::vector<mlkit::data::cell> drop_column(size_t index);
+  mlkit::data::vect drop_column(size_t index);
 
 };
 

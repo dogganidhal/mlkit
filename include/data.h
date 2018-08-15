@@ -13,5 +13,6 @@
 #include "macros.h"
 #include "cell.h"
 #include "data_set.h"
+#include "vect.h"
 
 #endif //MLKIT_DATA_H

@@ -28,17 +28,18 @@ private:
   double __a = 0.0;
   double __b = 0.0;
   
-  double __mean(std::vector<mlkit::data::cell> vect);
-  double __variance(std::vector<mlkit::data::cell> vect, double mean);
-  double __covariance(std::vector<mlkit::data::cell> vectX, double meanX, std::vector<mlkit::data::cell> vectY, double meanY);
-  void __compute_coefficients(std::vector<mlkit::data::cell> vectX, std::vector<mlkit::data::cell> vectY, double &a, double &b);
+  double __mean(mlkit::data::vect vect);
+  double __variance(mlkit::data::vect vect, double mean);
+  double __covariance(mlkit::data::vect vectX, double meanX, mlkit::data::vect vectY, double meanY);
+  void __compute_coefficients(mlkit::data::vect vectX, mlkit::data::vect vectY, double &a, double &b);
   
 public:
   
   simple_linear_regressor() = default;
   
-  void fit(mlkit::data::data_set data_set, std::vector<mlkit::data::cell> dependent_var);
-  std::vector<mlkit::data::cell> predict(mlkit::data::data_set ds);
+  void fit(mlkit::data::data_set data_set, mlkit::data::vect dependent_var);
+  mlkit::data::vect predict(mlkit::data::data_set ds);
+  double predict(mlkit::data::cell value);
   
 };
 

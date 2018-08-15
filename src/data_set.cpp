@@ -52,7 +52,7 @@ void mlkit::data::data_set::add_col(const std::string &label)
 
 }
 
-std::vector<mlkit::data::cell>& mlkit::data::data_set::operator[] (const std::string &label)
+mlkit::data::vect& mlkit::data::data_set::operator[] (const std::string &label)
 {
   
   for (size_t index = 0; index < __vectors.size(); index++)
@@ -102,9 +102,9 @@ std::tuple<mlkit::data::data_set, mlkit::data::data_set> mlkit::data::data_set::
   return std::tuple<mlkit::data::data_set, mlkit::data::data_set>(train_set, test_set);
 }
 
-std::vector<mlkit::data::cell> mlkit::data::data_set::drop_column(size_t index)
+mlkit::data::vect mlkit::data::data_set::drop_column(size_t index)
 {
-  std::vector<mlkit::data::cell> col;
+  mlkit::data::vect col;
   for (size_t row = 0; row < __vectors[index].cells().size(); row++)
     col.push_back(__vectors[index].cells()[row]);
   __vectors.erase(__vectors.begin() + index);

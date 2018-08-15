@@ -8,7 +8,7 @@
 
 #include "simple_linear_regressor.h"
 
-double mlkit::simple_linear_regressor::__mean(std::vector<mlkit::data::cell> vect)
+double mlkit::simple_linear_regressor::__mean(mlkit::data::vect vect)
 {
   double acc = 0.0;
   for (unsigned long index = 0; index < vect.size(); index++)
@@ -16,7 +16,7 @@ double mlkit::simple_linear_regressor::__mean(std::vector<mlkit::data::cell> vec
   return acc / vect.size();
 }
 
-double mlkit::simple_linear_regressor::__variance(std::vector<mlkit::data::cell> vect, double mean)
+double mlkit::simple_linear_regressor::__variance(mlkit::data::vect vect, double mean)
 {
   double variance = 0.0;
   for (unsigned long index = 0; index < vect.size(); index++)
@@ -27,7 +27,7 @@ double mlkit::simple_linear_regressor::__variance(std::vector<mlkit::data::cell>
   return variance;
 }
 
-double mlkit::simple_linear_regressor::__covariance(std::vector<mlkit::data::cell> vectX, double meanX, std::vector<mlkit::data::cell> vectY, double meanY)
+double mlkit::simple_linear_regressor::__covariance(mlkit::data::vect vectX, double meanX, mlkit::data::vect vectY, double meanY)
 {
   double covariance = 0.0;
   for (unsigned long index = 0; index < vectX.size(); index++)
@@ -35,7 +35,7 @@ double mlkit::simple_linear_regressor::__covariance(std::vector<mlkit::data::cel
   return covariance;
 }
 
-void mlkit::simple_linear_regressor::__compute_coefficients(std::vector<mlkit::data::cell> vectX, std::vector<mlkit::data::cell> vectY, double &a, double &b)
+void mlkit::simple_linear_regressor::__compute_coefficients(mlkit::data::vect vectX, mlkit::data::vect vectY, double &a, double &b)
 {
   double meanX = __mean(vectX);
   double meanY = __mean(vectY);
@@ -43,26 +43,26 @@ void mlkit::simple_linear_regressor::__compute_coefficients(std::vector<mlkit::d
   b = meanY - a * meanX;
 }
 
-void mlkit::simple_linear_regressor::fit(mlkit::data::data_set data_set, std::vector<mlkit::data::cell> dependent_var)
+void mlkit::simple_linear_regressor::fit(mlkit::data::data_set data_set, mlkit::data::vect dependent_var)
 {
   assert(data_set.ncols() == 1);
   
   std::string label = data_set.labels()[0];
-  std::vector<mlkit::data::cell> vectX = data_set[label];
+  mlkit::data::vect vectX = data_set[label];
   
   __compute_coefficients(vectX, dependent_var, __a, __b);
   __did_fit = true;
   
 }
 
-std::vector<mlkit::data::cell> mlkit::simple_linear_regressor::predict(mlkit::data::data_set ds)
+mlkit::data::vect mlkit::simple_linear_regressor::predict(mlkit::data::data_set ds)
 {
   assert(__did_fit);
   assert(ds.ncols() == 1);
   
   std::string label = ds.labels()[0];
-  std::vector<mlkit::data::cell> vectX = ds[label];
-  std::vector<mlkit::data::cell> predictions;
+  mlkit::data::vect vectX = ds[label];
+  mlkit::data::vect predictions;
   
   for (size_t index = 0; index < vectX.size(); index++)
     predictions.push_back((double)vectX.at(index) * __a + __b);
@@ -70,7 +70,11 @@ std::vector<mlkit::data::cell> mlkit::simple_linear_regressor::predict(mlkit::da
   return predictions;
 }
 
-
+double mlkit::simple_linear_regressor::predict(mlkit::data::cell value)
+{
+  assert(__did_fit);
+  return ((double)value) * __a + __b;;
+}
 
 
 

@@ -18,12 +18,12 @@ int main()
   
   mlkit::simple_linear_regressor regressor;
   
-  std::vector<mlkit::data::cell> train_dependent_var = train_set.drop_column(1);
-  std::vector<mlkit::data::cell> test_dependent_var = test_set.drop_column(1);
+  mlkit::data::vect train_dependent_var = train_set.drop_column(1);
+  mlkit::data::vect test_dependent_var = test_set.drop_column(1);
 
   regressor.fit(train_set, train_dependent_var);
   
-  std::vector<mlkit::data::cell> predicted = regressor.predict(test_set);
+  mlkit::data::vect predicted = regressor.predict(test_set);
   
   for (size_t index = 0; index < predicted.size(); index++)
     std::cout << "Predicted: " << predicted[index] << ", Actual: "

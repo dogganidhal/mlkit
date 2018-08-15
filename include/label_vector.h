@@ -13,6 +13,7 @@
 #include <string>
 #include "macros.h"
 #include "cell.h"
+#include "vect.h"
 
 MLKIT_NAMESPACE_DEFINE
 MLKIT_DATA_NAMESPACE_DEFINE
@@ -23,7 +24,7 @@ class label_vector
 private:
 
   std::string __label;
-  std::vector<mlkit::data::cell> __cells;
+  mlkit::data::vect __cells;
 
 public:
 
@@ -31,12 +32,12 @@ public:
   {
 
     __label = label;
-    __cells = std::vector<mlkit::data::cell>();
+    __cells = mlkit::data::vect();
 
   }
 
   std::string label() const { return __label; }
-  std::vector<mlkit::data::cell>& cells() { return __cells; }
+  mlkit::data::vect& cells() { return __cells; }
 
 };
 

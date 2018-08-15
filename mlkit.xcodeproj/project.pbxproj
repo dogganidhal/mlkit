@@ -66,6 +66,7 @@
 		E3FB700C2124A9F900842E30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3FB70152124AC3E00842E30 /* mlkit_tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mlkit_tests.h; sourceTree = "<group>"; };
 		E3FB70162124B16900842E30 /* simple_linear_regressor_tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = simple_linear_regressor_tests.mm; sourceTree = "<group>"; };
+		E3FB70182124B85200842E30 /* vect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vect.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +127,7 @@
 				E3B389682116290C0066BE3A /* label_vector.h */,
 				E3B389642116290C0066BE3A /* macros.h */,
 				E3B389622116290C0066BE3A /* mlkit.h */,
+				E3FB70182124B85200842E30 /* vect.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
