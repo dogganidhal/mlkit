@@ -84,12 +84,12 @@
   
 }
 
-- (void)testCSVReadForHugeFilePerformance
+- (void)testCSVReadPerformanceForHugeFile
 {
   [self measureBlock:^
-  {
-    mlkit::io::csv_reader::read(mlkit_input_file_path("reviews-dataset.csv"));
-  }];
+   {
+     mlkit::io::csv_reader::read(mlkit_input_file_path("reviews-dataset.csv"));
+   }];
 }
 
 @end
