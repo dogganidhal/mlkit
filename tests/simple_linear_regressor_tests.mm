@@ -1,5 +1,5 @@
 //
-//  simple_linear_regressor_tests.m
+//  simple_linear_regressor_tests.mm
 //  tests
 //
 //  Created by Nidhal DOGGA on 15/08/2018.

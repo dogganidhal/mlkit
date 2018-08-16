@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78C8A6842125B5C10086C219 /* simple-linear-regression-example.csv in Resources */ = {isa = PBXBuildFile; fileRef = 78C8A6802125B5C10086C219 /* simple-linear-regression-example.csv */; };
+		78C8A6852125B5C10086C219 /* 100-rows.csv in Resources */ = {isa = PBXBuildFile; fileRef = 78C8A6812125B5C10086C219 /* 100-rows.csv */; };
+		78C8A6862125B5C10086C219 /* reviews-dataset.csv in Resources */ = {isa = PBXBuildFile; fileRef = 78C8A6822125B5C10086C219 /* reviews-dataset.csv */; };
+		78C8A6872125B5C10086C219 /* 1000-rows.csv in Resources */ = {isa = PBXBuildFile; fileRef = 78C8A6832125B5C10086C219 /* 1000-rows.csv */; };
 		E3B3895C211628FF0066BE3A /* cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B38957211628FF0066BE3A /* cell.cpp */; };
 		E3B3895E211628FF0066BE3A /* csv_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B38959211628FF0066BE3A /* csv_reader.cpp */; };
 		E3B3895F211628FF0066BE3A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B3895A211628FF0066BE3A /* main.cpp */; };
@@ -45,6 +49,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		78C8A6802125B5C10086C219 /* simple-linear-regression-example.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "simple-linear-regression-example.csv"; sourceTree = "<group>"; };
+		78C8A6812125B5C10086C219 /* 100-rows.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "100-rows.csv"; sourceTree = "<group>"; };
+		78C8A6822125B5C10086C219 /* reviews-dataset.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "reviews-dataset.csv"; sourceTree = "<group>"; };
+		78C8A6832125B5C10086C219 /* 1000-rows.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1000-rows.csv"; sourceTree = "<group>"; };
 		E3B38933211627BF0066BE3A /* mlkit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mlkit; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3B38957211628FF0066BE3A /* cell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cell.cpp; sourceTree = "<group>"; };
 		E3B38959211628FF0066BE3A /* csv_reader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = csv_reader.cpp; sourceTree = "<group>"; };
@@ -64,7 +72,6 @@
 		E3FB70082124A9F900842E30 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FB700A2124A9F900842E30 /* csv_reader_tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = csv_reader_tests.mm; sourceTree = "<group>"; };
 		E3FB700C2124A9F900842E30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E3FB70152124AC3E00842E30 /* mlkit_tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mlkit_tests.h; sourceTree = "<group>"; };
 		E3FB70162124B16900842E30 /* simple_linear_regressor_tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = simple_linear_regressor_tests.mm; sourceTree = "<group>"; };
 		E3FB70182124B85200842E30 /* vect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vect.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +102,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78C8A67F2125B5C10086C219 /* input */ = {
+			isa = PBXGroup;
+			children = (
+				78C8A6802125B5C10086C219 /* simple-linear-regression-example.csv */,
+				78C8A6812125B5C10086C219 /* 100-rows.csv */,
+				78C8A6822125B5C10086C219 /* reviews-dataset.csv */,
+				78C8A6832125B5C10086C219 /* 1000-rows.csv */,
+			);
+			path = input;
+			sourceTree = SOURCE_ROOT;
+		};
 		E3B3892A211627BF0066BE3A = {
 			isa = PBXGroup;
 			children = (
@@ -147,9 +165,9 @@
 		E3FB70092124A9F900842E30 /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				78C8A67F2125B5C10086C219 /* input */,
 				E3FB700A2124A9F900842E30 /* csv_reader_tests.mm */,
 				E3FB70162124B16900842E30 /* simple_linear_regressor_tests.mm */,
-				E3FB70152124AC3E00842E30 /* mlkit_tests.h */,
 				E3FB700C2124A9F900842E30 /* Info.plist */,
 			);
 			path = tests;
@@ -265,6 +283,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78C8A6872125B5C10086C219 /* 1000-rows.csv in Resources */,
+				78C8A6842125B5C10086C219 /* simple-linear-regression-example.csv in Resources */,
+				78C8A6852125B5C10086C219 /* 100-rows.csv in Resources */,
+				78C8A6862125B5C10086C219 /* reviews-dataset.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
